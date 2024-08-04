@@ -1,0 +1,18 @@
+Required Libraries:
+
+
+
+1. DHT Sensor Library use Link: https://github.com/adafruit/DHT-sensor-library
+
+
+2. NewPing Library
+
+
+3. ESP32 Libraries
+
+
+4.WiFi Library: This library is included with the ESP32 package. You don't need to install it separately.
+
+
+5.HTTPClient Library: This library is included with the ESP32 package. You don't need to install it separately.
+

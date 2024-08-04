@@ -1,0 +1,34 @@
+Connections:
+Arduino Connections:
+Ultrasonic Sensors:
+
+Front: Trigger Pin 2, Echo Pin 3
+Back: Trigger Pin 4, Echo Pin 5
+Left: Trigger Pin 6, Echo Pin 7
+Right: Trigger Pin 8, Echo Pin 9
+DHT11 Temperature Sensor:
+
+Data Pin 10
+MQ-2 Gas Sensor:
+
+Analog Pin A0
+L298N Motor Driver:
+
+Connect the motor driver's input pins to the Arduino pins 11 and 12 for controlling the motors.
+ESP32/ESP8266:
+
+TX of Arduino to RX of ESP32/ESP8266
+RX of Arduino to TX of ESP32/ESP8266
+ESP32-CAM:
+Connect the ESP32-CAM to the FTDI programmer for initial programming.
+Power the ESP32-CAM with 5V and GND.
+Programming:
+Arduino Code:
+
+Handles robot navigation, obstacle detection, and emergency detection.
+ESP32-CAM Code:
+
+Sets up live video streaming.
+ESP32/ESP8266 Code:
+
+Connects to WiFi and sends emergency notifications via IFTTT.

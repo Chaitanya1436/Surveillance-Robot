@@ -1,0 +1,52 @@
+#include <WiFi.h>
+#include <HTTPClient.h>
+
+// Your WiFi details
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+
+// Your IFTTT key
+const char* iftttKey = "YOUR_IFTTT_KEY";
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Connect to WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+
+  // Set up communication with Arduino
+  Serial1.begin(115200);
+}
+
+void sendNotification(const char* eventName, const char* message) {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    String url = String("http://maker.ifttt.com/trigger/") + eventName + "/with/key/" + iftttKey + "?value1=" + message;
+    http.begin(url);
+    int httpCode = http.GET();
+    if (httpCode > 0) {
+      Serial.println("Notification sent");
+    } else {
+      Serial.println("Error sending notification");
+    }
+    http.end();
+  } else {
+    Serial.println("WiFi not connected");
+  }
+}
+
+void loop() {
+  if (Serial1.available()) {
+    String message = Serial1.readStringUntil('\n');
+    if (message.indexOf("fire_detected") != -1) {
+      sendNotification("fire_detected", "Emergency, fire detected");
+    } else if (message.indexOf("gas_detected") != -1) {
+      sendNotification("gas_detected", "Gas detected");
+    }
+  }
+}

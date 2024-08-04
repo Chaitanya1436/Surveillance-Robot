@@ -1,0 +1,34 @@
+#include "esp_camera.h"
+#include <WiFi.h>
+
+// Your WiFi details
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+
+// Camera setup
+#define CAMERA_MODEL_AI_THINKER
+#include "camera_pins.h"
+
+void startCameraServer();
+
+void setup() {
+  Serial.begin(115200);
+  
+  // Connect to WiFi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+
+  // Start the camera server
+  startCameraServer();
+  Serial.print("Camera Stream Ready! Go to: http://");
+  Serial.print(WiFi.localIP());
+  Serial.println("/");
+}
+
+void loop() {
+  // Nothing needed here, the server runs the video stream
+}

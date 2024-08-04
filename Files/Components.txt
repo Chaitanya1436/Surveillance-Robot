@@ -1,0 +1,38 @@
+Components and Modules:
+Arduino Uno
+
+Acts as the main controller for handling sensors and motor control.
+ESP32-CAM
+
+Provides live video streaming capabilities accessible over the internet.
+ESP32/ESP8266
+
+Handles WiFi communication and sends emergency notifications via IFTTT.
+Ultrasonic Sensors (4 pieces)
+
+Used for obstacle detection (front, back, left, and right).
+DHT11 Temperature Sensor
+
+Measures temperature for detecting fire emergencies.
+MQ-2 Gas Sensor
+
+Detects gas leaks (e.g., LPG, methane).
+L298N Motor Driver
+
+Controls the motors of the robot.
+DC Motors (2 pieces)
+
+Used for moving the robot.
+Buzzer or Alarm
+
+Provides an audible alarm in case of emergencies (optional).
+FTDI Programmer
+
+Used for programming the ESP32-CAM.
+Additional Components:
+Jumper Wires
+For making connections between components.
+Breadboard
+For prototyping and making connections easier.
+Power Supply
+Adequate power source for Arduino, ESP32, and motors.
